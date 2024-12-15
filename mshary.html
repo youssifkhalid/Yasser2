@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تلاوات الشيخ مشاري العفاسي</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"type="text/css" />
+
+</head>
+<body>
+    <header>
+        <button id="themeToggle" class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        <h1>تلاوات الشيخ مشاري العفاسي</h1>
+        <p>استمع إلى تلاوات القرآن الكريم بصوت الشيخ مشاري العفاسي</p>
+    </header>
+
+    <div class="container">
+        <div class="sheikh-info fade-in">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3VBA4ZR8xYaO6grauIRQMg_HPrso6pt90OAUrJ42-BCLL14lq04VW4CY&s=10" alt="الشيخ مشاري العفاسي" />
+            <div class="sheikh-info-text">
+                <h2>الشيخ مشاري العفاسي</h2>
+                <p>يتمتّع بصوت عذب وقوّة في التحكّم بطبقات الصوت وروعة الأداء. له العديد من الإصدارات التي انتشرت في الوطن العربي والإسلامي والعالم.</p>
+            </div>
+        </div>
+
+        <div class="search-container fade-in">
+            <input type="search" id="search-input" placeholder="ابحث عن سورة بالاسم أو الرقم...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div class="current-surah fade-in" id="current-surah">اختر سورة للاستماع</div>
+        
+        <div class="verse-display fade-in" id="verse-display"></div>
+        
+        <audio id="audio-player" controls style="display: none;"></audio>
+        
+        <ul class="surah-list fade-in" id="surah-list"></ul>
+    </div>
+    
+    <script>
+        
+
+        const audioLinks = [];
+
+        for (let i = 1; i <= 114; i++) {
+            let number = i.toString().padStart(3, '0');
+            let link = `https://server8.mp3quran.net/afs/${number}.mp3`;
+            audioLinks.push(link);
+        }
+
+        
+    </script>
+        <script src="script.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+

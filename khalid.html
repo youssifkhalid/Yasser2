@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>تلاوات الشيخ الشيخ الجليل </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="style.css"type="text/css" />
+
+</head>
+<body>
+    <header>
+        <button id="themeToggle" class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        <h1>تلاوات الشيخ خالد الجليل</h1>
+     
+        <p>استمع إلى تلاوات القرآن الكريم بصوت الشيخ خالد الجليل</p>
+    
+    </header>
+
+    <div class="container">
+        <div class="sheikh-info fade-in">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPhymzbH4sH5MflPb_XAfbz4ORvX_Onb8TIA&s" alt="الشيخ خالد الجليل" />
+            <div class="sheikh-info-text">
+            
+                <h2>الشيخ خالد الجليل</h2>
+               <p>الشيخ خالد بن فهد الجليل المطيرى ولد فى العاصمة الرياض عام 1963، ويبلغ من العمر 60 عام. بدأ اهتمامه بتحصيل علوم القرآن واتقان تلاوته مبكرًا فضل ما حباه الله تعالى من صوت مميز يتسم بالعذوبة والخشوع، مما أدى إلى زيادة شهرته ليصبح من أشهر المقرئين فى المملكة والعالم العربى.</p> 
+            
+                
+            </div>
+        </div>
+
+        <div class="search-container fade-in">
+            <input type="search" id="search-input" placeholder="ابحث عن سورة...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div class="current-surah fade-in" id="current-surah">اختر سورة للاستماع</div>
+        
+        <div class="verse-display fade-in" id="verse-display"></div>
+        
+        <audio id="audio-player" controls style="display: none;"></audio>
+        
+       
+        
+        <ul class="surah-list fade-in" id="surah-list"></ul>
+    </div>
+    
+    <script>
+       
+
+          const audioLinks = [];
+
+for (let i = 1; i <= 114; i++) {
+    let number = i.toString().padStart(3, '0'); // إضافة أصفار على اليسار لتكون 3 أرقام
+    let link = `https://server10.mp3quran.net/jleel/${number}.mp3`;
+    audioLinks.push(link); // إضافة الرابط إلى المصفوفة
+}
+
+console.log(audioLinks); // طباعة المصفوفة كاملة في وحدة التحكم
+
+
+        
+    </script>
+        <script src="script.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>

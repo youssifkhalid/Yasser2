@@ -1,765 +1,188 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تلاوات الشيخ ياسر الدوسري - </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700&display=swap');
+    <title>قراء القرآن الكريم</title>
+    <style>/* styles.css */body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+}
 
-        :root {
-            --primary-color: #1e40af;
-            --secondary-color: #3b82f6;
-            --background-light: #f0f9ff;
-            --background-dark: #1e293b;
-            --text-light: #1e293b;
-            --text-dark: #f1f5f9;
-            --card-bg-light: #ffffff;
-            --card-bg-dark: #334155;
-            --accent-color: #fbbf24;
-        }
+header {
+    background-color: #1a365d;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
 
-        body {
-            font-family: 'Tajawal', 'Amiri', sans-serif;
-            background-color: var(--background-light);
-            color: var(--text-light);
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
-        }
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
 
-        body.dark-mode {
-            background-color: var(--background-dark);
-            color: var(--text-dark);
-        }
+.readers-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.reader {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    width: calc(33.333% - 20px);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        header {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            text-align: center;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            border-radius: 10px;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
+.reader:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
-            animation: ripple 15s infinite linear;
-            z-index: 1;
-        }
+.reader img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
-        @keyframes ripple {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(50%, 50%);
-            }
-        }
+h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 2;
-        }
+p {
+    font-size: 0.9em;
+    color: #555;
+}
 
-        .sheikh-info {
-            display: flex;
-            align-items: center;
-            background-color: var(--card-bg-light);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
+.profile-button {
+    display: inline-block;
+    background-color: #1a365d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
 
-        .dark-mode .sheikh-info {
-            background-color: var(--card-bg-dark);
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-        }
+.profile-button:hover {
+    background-color: #45a049;
+}
 
-        .sheikh-info img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-left: 1.5rem;
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
+@media (max-width: 768px) {
+    .reader {
+        width: calc(50% - 20px);
+    }
+}
 
-        .sheikh-info img:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .sheikh-info-text h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .dark-mode .sheikh-info-text h2 {
-            color: var(--secondary-color);
-        }
-
-        .search-container {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 0.75rem 2.5rem 0.75rem 1rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 25px;
-            font-size: 1rem;
-            background-color: var(--card-bg-light);
-            color: var(--text-light);
-            transition: all 0.3s ease;
-        }
-
-        .dark-mode .search-container input {
-            background-color: var(--card-bg-dark);
-            color: var(--text-dark);
-            border-color: var(--secondary-color);
-        }
-
-        .search-container input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
-        }
-
-        .search-icon {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary-color);
-        }
-
-        .dark-mode .search-icon {
-            color: var(--secondary-color);
-        }
-
-        .surah-list {
-            list-style-type: none;
-            background-color: var(--card-bg-light);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            max-height: 400px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) var(--background-light);
-        }
-
-        .dark-mode .surah-list {
-            background-color: var(--card-bg-dark);
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-            scrollbar-color: var(--secondary-color) var(--background-dark);
-        }
-
-        .surah-list::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .surah-list::-webkit-scrollbar-track {
-            background: var(--background-light);
-        }
-
-        .dark-mode .surah-list::-webkit-scrollbar-track {
-            background: var(--background-dark);
-        }
-
-        .surah-list::-webkit-scrollbar-thumb {
-            background-color: var(--primary-color);
-            border-radius: 20px;
-        }
-
-        .dark-mode .surah-list::-webkit-scrollbar-thumb {
-            background-color: var(--secondary-color);
-        }
-
-        .surah-item {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .dark-mode .surah-item {
-            border-bottom-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .surah-item:last-child {
-            border-bottom: none;
-        }
-
-        .surah-item a {
-            color: var(--text-light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-
-        .dark-mode .surah-item a {
-            color: var(--text-dark);
-        }
-
-        .surah-item a:hover {
-            color: var(--primary-color);
-        }
-
-        .dark-mode .surah-item a:hover {
-            color: var(--secondary-color);
-        }
-
-        .surah-item .surah-number {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
-
-        .dark-mode .surah-item .surah-number {
-            background-color: var(--secondary-color);
-        }
-
-        .current-surah {
-            text-align: center;
-            margin: 1rem 0;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .dark-mode .current-surah {
-            color: var(--secondary-color);
-        }
-
-        .verse-display {
-            background-color: var(--card-bg-light);
-            color: var(--text-light);
-            padding: 2rem;
-            border-radius: 10px;
-            font-size: 1.5rem;
-            text-align: center;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            min-height: 200px;
-            max-height: 400px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        .dark-mode .verse-display {
-            background-color: var(--card-bg-dark);
-            color: var(--text-dark);
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-        }
-
-        .verse {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .verse.active {
-           
-            transform: scale(1.05);
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .control-btn {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .dark-mode .control-btn {
-            background-color: var(--secondary-color);
-        }
-
-        .control-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        .dark-mode .control-btn:hover {
-            background-color: var(--primary-color);
-        }
-
-        .control-btn:active {
-            transform: translateY(0);
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: transform 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(30deg);
-        }
-
-        #audio-player {
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .sheikh-info {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .sheikh-info img {
-                margin-left: 0;
-                margin-bottom: 1rem;
-            }
-
-            .verse-display {
-                font-size: 1.2rem;
-                padding: 1.5rem;
-            }
-
-            .controls {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-    </style>
+@media (max-width: 480px) {
+    .reader {
+        width: 100%;
+    }
+}</style>
 </head>
 <body>
     <header>
-        <button id="themeToggle" class="theme-toggle">
-            <i class="fas fa-moon"></i>
-        </button>
-        <h1 class="fade-in">تلاوات الشيخ ياسر الدوسري</h1>
-        <p class="fade-in">استمع إلى تلاوات القرآن الكريم بصوت الشيخ ياسر الدوسري</p>
+        <h1>قراء القرآن الكريم</h1>
     </header>
-
-    <div class="container">
-        <div class="sheikh-info fade-in">
-            <img src="data:image/jpeg;base64,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" alt="الشيخ ياسر الدوسري" id="sheikhImage">
-            <div class="sheikh-info-text">
-                <h2>الشيخ ياسر الدوسري</h2>
-                <p>قارئ قرآن مشهور من المملكة العربية السعودية، معروف بصوته العذب وأدائه المميز للقرآن الكريم.</p>
+    <main>
+        <div class="readers-list">
+            <div class="reader">
+                <img src="data:image/jpeg;base64,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" alt="ياسر الدوسري">
+                <h2>ياسر الدوسري</h2>
+                <p>قارئ معروف ومحبوب، يتمتع بصوت عذب.</p>
+                <a href="yasser.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+             <div class="reader">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOz2mqzmILDOTFr07OzidqsgY1DIyvXuCFIw&s">
+                <h2> احمد نفيس</h2>
+                <p>قارئ له شعبية كبيرة في العالم الإسلامي.</p>
+                <a href="احمد نفيس.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+            
+            <div class="reader">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyCcvn4sW3FvfqG5efaPiqhz4qtA9o4e5ONA&usqp=CAU" alt="خالد الجليل">
+                <h2>خالد الجليل</h2>
+                <p>قارئ متميز، له العديد من التسجيلات المشهورة.</p>
+                <a href="khalid.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+            <div class="reader">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVMYrhi_a4jZt9vqMENmfv-tH14QBkHJH0-h1psEDTFTw6Le7juuyOp60&s=10" alt="مشاري العفاسي">
+                <h2>مشاري العفاسي</h2>
+                <p>قارئ مشهور بصوته الرائع وأدائه الفريد.</p>
+                <a href="mshary.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+            <div class="reader">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTslvDAXnO54z9EwPy_QksdG7rq2go2V766B3Lwks1CkhIDXXmuy4zN0n8&s=10" alt="سعد الغامدي">
+                <h2>سعد الغامدي</h2>
+                <p>قارئ له العديد من الألبومات والتسجيلات.</p>
+                <a href="saad.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+            <div class="reader">
+                <img src="data:image/jpeg;base64,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" alt="عبد الرحمن السديس">
+                <h2>عبد الرحمن السديس</h2>
+                <p>إمام الحرم المكي وقارئ مشهور.</p>
+                <a href="عبدالرحمان سديس.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+            
+            <div class="reader">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlcZosP4YTsFeMuJCvlOiauPKVSRsXA3FAeA&usqp=CAU" alt="أحمد العجمي">
+                <h2>أحمد العجمي</h2>
+                <p>قارئ معروف بتلاوته المؤثرة.</p>
+                <a href="احمد العجامي.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+           
+            <div class="reader">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ78ExZjkfdOq7k87l4YvbYsZxfMGtR8OcrBRv__z74j0MRA_IlAYcYAjVq&s=10" alt="المنشاوي">
+                <h2>المنشاوي </h2>
+                <p>قارئ له أسلوب فريد في التلاوة.</p>
+                <a href="المنشاوي.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+            
+            
+            <div class="reader">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6-bdoJUm5x-p9twhfLrAgo0qwheGHGOcyxw&usqp=CAU" alt="محمد البراك">
+                <h2>محمد اليحيدان</h2>
+                <p>قارئ يتمتع بصوت مميز وأداء رائع.</p>
+                <a href="محمد اليحيدان.html" class="profile-button">عرض الملف الشخصي</a>
+            </div>
+            
+            
+            <div class="reader">
+                <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT53UU4D_ALKAuCcpSOlRH_8ocT_Gnol67K7w&s" alt="فهد ماهر المعيقلي">
+                <h2>ماهر المعيقلي</h2>
+                <p>قارئ له تلاوات مشهورة في المساجد.</p>
+                <a href=  "ماهر المعيقلي.html" class="profile-button">عرض الملف الشخصي</a>
             </div>
         </div>
-
-        <div class="search-container fade-in">
-            <input type="search" id="search-input" placeholder="ابحث عن سورة...">
-            <i class="fas fa-search search-icon"></i>
-        </div>
-
-        <div class="current-surah fade-in" id="current-surah">اختر سورة للاستماع</div>
-        
-        <div class="verse-display fade-in" id="verse-display"></div>
-        
-        <audio id="audio-player" controls style="display: none;"></audio>
-        
-       
-        
-        <ul class="surah-list fade-in" id="surah-list"></ul>
-    </div>
-    
-    <script>
-        const surahs = [
-            "الفاتحة", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس",
-            "هود", "يوسف", "الرعد", "إبراهيم", "الحجر", "النحل", "الإسراء", "الكهف", "مريم", "طه",
-            "الأنبياء", "الحج", "المؤمنون", "النور", "الفرقان", "الشعراء", "النمل", "القصص", "العنكبوت", "الروم",
-            "لقمان", "السجدة", "الأحزاب", "سبأ", "فاطر", "يس", "الصافات", "ص", "الزمر", "غافر",
-            "فصلت", "الشورى", "الزخرف", "الدخان", "الجاثية", "الأحقاف", "محمد", "الفتح", "الحجرات", "ق",
-            "الذاريات", "الطور", "النجم", "القمر", "الرحمن", "الواقعة", "الحديد", "المجادلة", "الحشر", "الممتحنة",
-            "الصف", "الجمعة", "المنافقون", "التغابن", "الطلاق", "التحريم", "الملك", "القلم", "الحاقة", "المعارج",
-            "نوح", "الجن", "المزمل", "المدثر", "القيامة", "الإنسان", "المرسلات", "النبأ", "النازعات", "عبس",
-            "التكوير", "الانفطار", "المطففين", "الانشقاق", "البروج", "الطارق", "الأعلى", "الغاشية", "الفجر", "البلد",
-            "الشمس", "الليل", "الضحى", "الشرح", "التين", "العلق", "القدر", "البينة", "الزلزلة", "العاديات",
-            "القارعة", "التكاثر", "العصر", "الهمزة", "الفيل", "قريش", "الماعون", "الكوثر", "الكافرون", "النصر",
-            "المسد", "الإخلاص", "الفلق", "الناس"
-        ];
-
-        const audioLinks = [
-            "https://server11.mp3quran.net/yasser/001.mp3",
-            "https://server11.mp3quran.net/yasser/002.mp3",
-            "https://server11.mp3quran.net/yasser/003.mp3",
-            "https://server11.mp3quran.net/yasser/004.mp3",
-            "https://server11.mp3quran.net/yasser/005.mp3",
-            "https://server11.mp3quran.net/yasser/006.mp3",
-            "https://server11.mp3quran.net/yasser/007.mp3",
-            "https://server11.mp3quran.net/yasser/008.mp3",
-            "https://server11.mp3quran.net/yasser/009.mp3",
-            "https://server11.mp3quran.net/yasser/010.mp3",
-            "https://server11.mp3quran.net/yasser/011.mp3",
-            "https://server11.mp3quran.net/yasser/012.mp3",
-            "https://server11.mp3quran.net/yasser/013.mp3",
-            "https://server11.mp3quran.net/yasser/014.mp3",
-            "https://server11.mp3quran.net/yasser/015.mp3",
-            "https://server11.mp3quran.net/yasser/016.mp3",
-            "https://server11.mp3quran.net/yasser/017.mp3",
-            "https://server11.mp3quran.net/yasser/018.mp3",
-            "https://server11.mp3quran.net/yasser/019.mp3",
-            "https://server11.mp3quran.net/yasser/020.mp3",
-            "https://server11.mp3quran.net/yasser/021.mp3",
-            "https://server11.mp3quran.net/yasser/022.mp3",
-            "https://server11.mp3quran.net/yasser/023.mp3",
-            "https://server11.mp3quran.net/yasser/024.mp3",
-            "https://server11.mp3quran.net/yasser/025.mp3",
-            "https://server11.mp3quran.net/yasser/026.mp3",
-            "https://server11.mp3quran.net/yasser/027.mp3",
-            "https://server11.mp3quran.net/yasser/028.mp3",
-            "https://server11.mp3quran.net/yasser/029.mp3",
-            "https://server11.mp3quran.net/yasser/030.mp3",
-            "https://server11.mp3quran.net/yasser/031.mp3",
-            "https://server11.mp3quran.net/yasser/032.mp3",
-            "https://server11.mp3quran.net/yasser/033.mp3",
-            "https://server11.mp3quran.net/yasser/034.mp3",
-            "https://server11.mp3quran.net/yasser/035.mp3",
-            "https://server11.mp3quran.net/yasser/036.mp3",
-            "https://server11.mp3quran.net/yasser/037.mp3",
-            "https://server11.mp3quran.net/yasser/038.mp3",
-            "https://server11.mp3quran.net/yasser/039.mp3",
-            "https://server11.mp3quran.net/yasser/040.mp3",
-            "https://server11.mp3quran.net/yasser/041.mp3",
-            "https://server11.mp3quran.net/yasser/042.mp3",
-            "https://server11.mp3quran.net/yasser/043.mp3",
-            "https://server11.mp3quran.net/yasser/044.mp3",
-            "https://server11.mp3quran.net/yasser/045.mp3",
-            "https://server11.mp3quran.net/yasser/046.mp3",
-            "https://server11.mp3quran.net/yasser/047.mp3",
-            "https://server11.mp3quran.net/yasser/048.mp3",
-            "https://server11.mp3quran.net/yasser/049.mp3",
-            "https://server11.mp3quran.net/yasser/050.mp3",
-            "https://server11.mp3quran.net/yasser/051.mp3",
-            "https://server11.mp3quran.net/yasser/052.mp3",
-            "https://server11.mp3quran.net/yasser/053.mp3",
-            "https://server11.mp3quran.net/yasser/054.mp3",
-            "https://server11.mp3quran.net/yasser/055.mp3",
-            "https://server11.mp3quran.net/yasser/056.mp3",
-            "https://server11.mp3quran.net/yasser/057.mp3",
-            "https://server11.mp3quran.net/yasser/058.mp3",
-            "https://server11.mp3quran.net/yasser/059.mp3",
-            "https://server11.mp3quran.net/yasser/060.mp3",
-            "https://server11.mp3quran.net/yasser/061.mp3",
-            "https://server11.mp3quran.net/yasser/062.mp3",
-            "https://server11.mp3quran.net/yasser/063.mp3",
-            "https://server11.mp3quran.net/yasser/064.mp3",
-            "https://server11.mp3quran.net/yasser/065.mp3",
-            "https://server11.mp3quran.net/yasser/066.mp3",
-            "https://server11.mp3quran.net/yasser/067.mp3",
-            "https://server11.mp3quran.net/yasser/068.mp3",
-            "https://server11.mp3quran.net/yasser/069.mp3",
-            "https://server11.mp3quran.net/yasser/070.mp3",
-            "https://server11.mp3quran.net/yasser/071.mp3",
-            "https://server11.mp3quran.net/yasser/072.mp3",
-            "https://server11.mp3quran.net/yasser/073.mp3",
-            "https://server11.mp3quran.net/yasser/074.mp3",
-            "https://server11.mp3quran.net/yasser/075.mp3",
-            "https://server11.mp3quran.net/yasser/076.mp3",
-            "https://server11.mp3quran.net/yasser/077.mp3",
-            "https://server11.mp3quran.net/yasser/078.mp3",
-            "https://server11.mp3quran.net/yasser/079.mp3",
-            "https://server11.mp3quran.net/yasser/080.mp3",
-            "https://server11.mp3quran.net/yasser/081.mp3",
-            "https://server11.mp3quran.net/yasser/082.mp3",
-            "https://server11.mp3quran.net/yasser/083.mp3",
-            "https://server11.mp3quran.net/yasser/084.mp3",
-            "https://server11.mp3quran.net/yasser/085.mp3",
-            "https://server11.mp3quran.net/yasser/086.mp3",
-            "https://server11.mp3quran.net/yasser/087.mp3",
-            "https://server11.mp3quran.net/yasser/088.mp3",
-            "https://server11.mp3quran.net/yasser/089.mp3",
-            "https://server11.mp3quran.net/yasser/090.mp3",
-            "https://server11.mp3quran.net/yasser/091.mp3",
-            "https://server11.mp3quran.net/yasser/092.mp3",
-            "https://server11.mp3quran.net/yasser/093.mp3",
-            "https://server11.mp3quran.net/yasser/094.mp3",
-            "https://server11.mp3quran.net/yasser/095.mp3",
-            "https://server11.mp3quran.net/yasser/096.mp3",
-            "https://server11.mp3quran.net/yasser/097.mp3",
-            "https://server11.mp3quran.net/yasser/098.mp3",
-            "https://server11.mp3quran.net/yasser/099.mp3",
-            "https://server11.mp3quran.net/yasser/100.mp3",
-            "https://server11.mp3quran.net/yasser/101.mp3",
-            "https://server11.mp3quran.net/yasser/102.mp3",
-            "https://server11.mp3quran.net/yasser/103.mp3",
-            "https://server11.mp3quran.net/yasser/104.mp3",
-            "https://server11.mp3quran.net/yasser/105.mp3",
-            "https://server11.mp3quran.net/yasser/106.mp3",
-            "https://server11.mp3quran.net/yasser/107.mp3",
-            "https://server11.mp3quran.net/yasser/108.mp3",
-            "https://server11.mp3quran.net/yasser/109.mp3",
-            "https://server11.mp3quran.net/yasser/110.mp3",
-            "https://server11.mp3quran.net/yasser/111.mp3",
-            "https://server11.mp3quran.net/yasser/112.mp3",
-            "https://server11.mp3quran.net/yasser/113.mp3",
-            "https://server11.mp3quran.net/yasser/114.mp3"
-        ];
-
-        let currentVerses = [];
-        let currentVerseIndex = 0;
-        let isPlaying = false;
-
-        function createSurahList() {
-            const surahListElement = document.getElementById('surah-list');
-            surahs.forEach((surah, index) => {
-                const listItem = document.createElement('li');
-                listItem.className = 'surah-item';
-                listItem.innerHTML = `
-                    <a href="#" data-surah-index="${index}">
-                        <span class="surah-number">${index + 1}</span>
-                        ${surah}
-                    </a>
-                `;
-                surahListElement.appendChild(listItem);
-            });
-        }
-
-        function initializeAudioPlayer() {
-            const surahList = document.getElementById('surah-list');
-            const audioPlayer = document.getElementById('audio-player');
-            const currentSurahElement = document.getElementById('current-surah');
-            const searchInput = document.getElementById('search-input');
-            const verseDisplay = document.getElementById('verse-display');
-            const prevVerseBtn = document.getElementById('prev-verse');
-            const nextVerseBtn = document.getElementById('next-verse');
-
-            surahList.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (e.target.tagName === 'A' || e.target.closest('a')) {
-                    const surahIndex = parseInt(e.target.closest('a').getAttribute('data-surah-index'));
-                    playSurah(surahIndex);
-                }
-            });
-
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase();
-                const surahListItems = surahList.querySelectorAll('.surah-item');
-
-                surahListItems.forEach((item, index) => {
-                    const surahName = surahs[index].toLowerCase();
-                    if (surahName.includes(searchTerm)) {
-                        item.style.display = '';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            audioPlayer.addEventListener('timeupdate', () => {
-                const currentTime = audioPlayer.currentTime;
-                const duration = audioPlayer.duration;
-                const verseIndex = Math.floor((currentTime / duration) * currentVerses.length);
-                if (verseIndex !== currentVerseIndex) {
-                    currentVerseIndex = verseIndex;
-                    highlightCurrentVerse();
-                }
-            });
-
-            audioPlayer.addEventListener('ended', () => {
-                isPlaying = false;
-                currentVerseIndex = 0;
-                highlightCurrentVerse();
-            });
-
-            prevVerseBtn.addEventListener('click', () => {
-                if (currentVerseIndex > 0) {
-                    currentVerseIndex--;
-                    highlightCurrentVerse();
-                    scrollToVerse(currentVerseIndex);
-                    if (isPlaying) {
-                        const duration = audioPlayer.duration;
-                        const timePerVerse = duration / currentVerses.length;
-                        audioPlayer.currentTime = currentVerseIndex * timePerVerse;
-                    }
-                }
-            });
-
-            nextVerseBtn.addEventListener('click', () => {
-                if (currentVerseIndex < currentVerses.length - 1) {
-                    currentVerseIndex++;
-                    highlightCurrentVerse();
-                    scrollToVerse(currentVerseIndex);
-                    if (isPlaying) {
-                        const duration = audioPlayer.duration;
-                        const timePerVerse = duration / currentVerses.length;
-                        audioPlayer.currentTime = currentVerseIndex * timePerVerse;
-                    }
-                }
-            });
-
-            async function playSurah(index) {
-                const audioSource = audioLinks[index];
-                audioPlayer.src = audioSource;
-                audioPlayer.style.display = 'block';
-                currentSurahElement.textContent = `السورة الحالية: ${surahs[index]}`;
-
-                try {
-                    const response = await fetch(`https://api.alquran.cloud/v1/surah/${index + 1}`);
-                    const data = await response.json();
-                    currentVerses = data.data.ayahs.map(ayah => ayah.text);
-                    displayVerses(currentVerses);
-                    currentVerseIndex = 0;
-                    highlightCurrentVerse();
-                    audioPlayer.play();
-                    isPlaying = true;
-                } catch (error) {
-                    console.error('Error fetching verses:', error);
-                    verseDisplay.textContent = 'عذرًا، حدث خطأ أثناء تحميل الآيات.';
-                }
-            }
-
-            function displayVerses(verses) {
-                verseDisplay.innerHTML = '';
-                verses.forEach((verse, index) => {
-                    const verseElement = document.createElement('div');
-                    verseElement.className = 'verse';
-                    verseElement.textContent = `${index + 1}. ${verse}`;
-                    verseDisplay.appendChild(verseElement);
-                });
-            }
-
-            function highlightCurrentVerse() {
-                const verseElements = verseDisplay.querySelectorAll('.verse');
-                verseElements.forEach((el, index) => {
-                    if (index === currentVerseIndex) {
-                        el.classList.add('active');
-                    } else {
-                        el.classList.remove('active');
-                    }
-                });
-            }
-
-            function scrollToVerse(index) {
-                const verseElements = verseDisplay.querySelectorAll('.verse');
-                if (verseElements[index]) {
-                    verseElements[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            createSurahList();
-            initializeAudioPlayer();
-        });
-
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                body.classList.remove('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            }
-        }
-
-        function toggleTheme() {
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            localStorage.setItem('theme', newTheme);
-            setTheme(newTheme);
-        }
-
-        // Initialize theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme);
-        }
-
-        themeToggle.addEventListener('click', toggleTheme);
-
-        // Add hover effect to Sheikh's image
-        const sheikhImage = document.getElementById('sheikhImage');
-        sheikhImage.addEventListener('mouseover', () => {
-            sheikhImage.style.transform = 'scale(1.1) rotate(5deg)';
-        });
-        sheikhImage.addEventListener('mouseout', () => {
-            sheikhImage.style.transform = 'scale(1) rotate(0deg)';
-        });
-
-        // Add fade-in animation to elements
-        function addFadeInAnimation() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-        }
-
-        window.addEventListener('load', addFadeInAnimation);
-    </script>
+    </main>
+    <script><script 
+function showProfile(readerName) {
+    alert("عرض ملف " + readerName);
+    // يمكنك توجيه المستخدم إلى صفحة أخرى باستخدام:
+    // window.location.href = readerName + '-profile.html';
+}</script>
 </body>
-    </html>
+</html>
+``
